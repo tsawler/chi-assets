@@ -22,7 +22,7 @@ func routes() *chi.Mux {
 	mux := chi.NewRouter()
 
 	// this just prints the full path of all assets to the console
-	fs.WalkDir(assets, ".", func(path string, d fs.DirEntry, err error) error {
+	_ = fs.WalkDir(assets, ".", func(path string, d fs.DirEntry, err error) error {
 		fmt.Println(path)
 		return nil
 	})
