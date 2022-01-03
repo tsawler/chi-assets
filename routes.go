@@ -13,7 +13,7 @@ var assets embed.FS
 
 // Home is the stub handler for the home page
 func Home(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Home"))
+	_, _ = w.Write([]byte("Home"))
 }
 
 // routes returns our router, and matches routes to handlers/filesystems
