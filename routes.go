@@ -11,10 +11,12 @@ import (
 //go:embed static
 var assets embed.FS
 
+// Home is the stub handler for the home page
 func Home(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Home"))
 }
 
+// routes returns our router, and matches routes to handlers/filesystems
 func routes() *chi.Mux {
 	// create the router
 	mux := chi.NewRouter()

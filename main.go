@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-
+	// create a server
 	srv := &http.Server{
 		Addr:              ":4000",
 		Handler:           routes(),
@@ -17,6 +17,7 @@ func main() {
 		WriteTimeout:      600 * time.Second,
 	}
 
+	// start the server
 	err := srv.ListenAndServe()
 	if err != nil {
 		log.Fatal(err)
