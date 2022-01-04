@@ -30,7 +30,7 @@ func routes() *chi.Mux {
 	// a sample handler for the home page
 	mux.HandleFunc("/", Home)
 
-	// handle serving embedded assets
+	// handle serving embedded assets from the read only filesystem assets
 	mux.Handle("/static/*", http.FileServer(http.FS(assets)))
 
 	return mux
