@@ -4,6 +4,7 @@ import (
 	"embed"
 	"fmt"
 	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
 	"io/fs"
 	"net/http"
 )
@@ -20,6 +21,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 func routes() *chi.Mux {
 	// create the router
 	mux := chi.NewRouter()
+	mux.Use(middleware.Heartbeat("/ping"))
 
 	// this just prints the full path of all assets to the console
 	_ = fs.WalkDir(assets, ".", func(path string, d fs.DirEntry, err error) error {
